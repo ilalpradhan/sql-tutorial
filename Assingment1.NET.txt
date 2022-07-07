@@ -1,1 +1,138 @@
 
+- Assignment 1
+    
+    1.What type would you choose for the following “numbers”?
+    
+    A person’s telephone number: int
+    
+    A person’s height: double
+    
+    A person’s age: int
+    
+    A person’s gender (Male, Female, Prefer Not To Answer): string
+    
+    A person’s salary: decimal
+    
+    A book’s ISBN: string
+    
+    A book’s price: double
+    
+    A book’s shipping weight: double
+    
+    A country’s population: uint 
+    
+    The number of stars in the universe: decimal
+    
+    The number of employees in each of the small or medium businesses in the
+    
+    United Kingdom (up to about 50,000 employees per business): ushort
+    
+    2. What are the difference between value type and reference type variables? What is
+    
+    boxing and unboxing?
+    
+    value type variables are variables that are stored in stack and have values stored in its memory.
+    
+    whereas, reference types are variable types that stores the address of the value, and the “value” is stored in heap, the reference type stores the pointer that points to the “value”.  
+    
+    The process of converting a value type to reference type is called **boxing.**
+    
+    The process of converting a reference type to value type is called **unboxing**.
+    
+    **Note**: In cases such as unboxing of a **null** object or casting the object as an incompatible data type, the program throws exceptions.
+    
+    3. What is meant by the terms managed resource and unmanaged resource in .NET?
+    
+    **Managed code** is the code which is managed by the CLR(Common Language Runtime) in *.NET Framework,*  Memory buffer overflow does not occur, whereas the Unmanaged code is the code which is directly executed by the operating system, Memory buffer overflow may occur as bound checking is not done and garbage collection and exception handling is not available in unmanaged code.
+    
+    4. What’s the purpose of Garbage Collector in .NET?
+    
+    The purpose of is to free the memory allocated in the heap when the instance assigned to the memory is in no use to avoid memory leaks.
+    
+    1.
+    
+    using System;
+    using System.Runtime.InteropServices;
+    
+    public class Program
+    {
+    public static void Main()
+    {
+    var types = new[] {typeof(sbyte), typeof(byte), typeof(short), typeof(ushort), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(float), typeof(double), typeof(decimal)};
+    
+    Console.WriteLine("| {0, -10} | {1, 7} | {2, 30} | {3, 30} |", "Type", "Byte(s)", "Min", "Max");
+    Console.WriteLine("|------------|---------|--------------------------------|--------------------------------|");
+    foreach (var type in types)
+    {
+    Console.WriteLine(
+    "| {0, -10} | {1, 7} | {2, 30} | {3, 30} |",
+    [type.Name](http://type.name/),
+    Marshal.SizeOf(Activator.CreateInstance(type)),
+    type.GetField("MinValue").GetValue(null),
+    type.GetField("MaxValue").GetValue(null));
+    }
+    }
+    }
+    
+    2. 
+    
+    public static void convertCenturies(byte centuries)
+    {
+    ushort year = Convert.ToUInt16(centuries * 100);
+    uint day = Convert.ToUInt32(year * 365 + year / 4);
+    uint hour = day * 24;
+    ulong minute = hour * 60;
+    ulong second = Convert.ToUInt64(minute * 60);
+    ulong milliesecond = second * 1000;
+    ulong microsecond = milliesecond * 1000;
+    string nanosecond = Convert.ToString(microsecond * 1000);
+    Console.WriteLine($"{centuries} Centuries = {year} Years = {day} Days = {hour} Hours = {minute} Minutes = {second} Seconds = {milliesecond} Milliesconds = {microsecond} Micorsecond = {nanosecond} Nanosecond");
+    }
+    
+    1. What happens when you divide an int variable by 0?
+    
+    get an error
+    
+    2. What happens when you divide a double variable by 0?
+    
+    infinity
+    
+    3. What happens when you overflow an int variable, that is, set it to a value beyond its
+    
+    range?
+    
+    INT_MAX to INT_MIN
+    
+    4. What is the difference between x = y++; and x = ++y;?
+    
+    y++ is post increment operator which means x has a value of y and value of y is updated y+1
+    
+    whereas ++y is pre increment operator which means x has a value of y+1 and value of y is updated y+1
+    
+    5. What is the difference between break, continue, and return when used inside a loop
+    
+    statement?
+    
+       break terminates the loop, continue terminates currrent iteration and leads to another iteration case, return terminates the function/method.
+    
+    6. What are the three parts of a for statement and which of them are required?
+    
+    initailization of counter variable , condition, update counter variable
+    
+    7. What is the difference between the = and == operators?
+    
+    = is for assignment, == is for comparison.
+    
+    8. Does the following statement compile? for ( ; true; ) ;
+    
+    infinite loop
+    
+    9. What does the underscore _ represent in a switch expression?
+    
+     default case
+    
+    10. What interface must an object implement to be enumerated over by using the foreach
+    
+    statement?
+    
+    IEnumerbale and IEnumerator
