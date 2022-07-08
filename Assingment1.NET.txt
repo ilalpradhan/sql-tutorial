@@ -136,3 +136,122 @@
     statement?
     
     IEnumerbale and IEnumerator
+    
+    
+    1.
+    public void FizzBuzz(int num)
+{
+for (int i = 1; i <= num; i++)
+{
+if (i % 15 == 0)
+{
+Console.Write("FizzBuzz ");
+} else if (i % 3 == 0)
+{
+Console.Write("Fizz ");
+} else if (i % 5 == 0)
+{
+Console.Write("Buzz ");
+} else
+{
+Console.Write($"{i} ");
+}
+}
+}
+
+4.
+
+public static void BDay()
+{
+Console.WriteLine("Enter your birthday:");
+DateTime birthday = Convert.ToDateTime(Console.ReadLine());
+double days = (DateTime.Today - birthday).TotalDays;
+Console.WriteLine(days);
+}
+
+1. 
+
+public static void Greetings()
+{
+int hour = DateTime.Now.Hour;
+if (hour < 12 && hour > 8) Console.WriteLine("Good Morning");
+if (hour < 18 && hour >= 12) Console.WriteLine("Good Afternoon");
+if (hour < 20 && hour >= 18) Console.WriteLine("Good Evening");
+if ((hour <= 24 && hour >= 20) || hour <= 8) Console.WriteLine("Good Night");
+Console.WriteLine(hour);
+}
+2. 
+//infinite loop because of the byte, use int
+
+3.
+public void Pyramid(int size)
+{
+for (int i = 1; i <= size; i++)
+{
+for (int j = 0; j <= size - i; j++)
+{
+Console.Write(" ");
+}
+for (int j = 1; j < i * 2; j++)
+{
+Console.Write("*");
+}
+Console.WriteLine();
+}
+}
+
+4.
+public void GuessNumber()
+{
+int correctNumber = new Random().Next(3) + 1;
+Console.Write("Please enter a number between 1 and 3 => ");
+int guessedNumber = Convert.ToInt32(Console.ReadLine());
+if (correctNumber == guessedNumber)
+{
+Console.WriteLine("You got the correct answer!");
+} else if (correctNumber < 1 || correctNumber > 3)
+{
+Console.WriteLine("You guess was outside of the range");
+} else if (correctNumber < guessedNumber)
+{
+Console.WriteLine("A little bit too high.");
+} else
+{
+Console.WriteLine("A little bit too low.");
+}
+}
+5.
+public static void BDay()
+{
+Console.WriteLine("Enter your birthday:");
+DateTime birthday = Convert.ToDateTime(Console.ReadLine());
+double days = (DateTime.Today - birthday).TotalDays;
+Console.WriteLine(days);
+}
+
+6.
+public static void Greetings()
+{
+int hour = DateTime.Now.Hour;
+if (hour < 12 && hour > 8) Console.WriteLine("Good Morning");
+if (hour < 18 && hour >= 12) Console.WriteLine("Good Afternoon");
+if (hour < 20 && hour >= 18) Console.WriteLine("Good Evening");
+if ((hour <= 24 && hour >= 20) || hour <= 8) Console.WriteLine("Good Night");
+Console.WriteLine(hour);
+}
+
+
+7.
+
+public static void Loop()
+{
+for (int i = 1; i < 5; i++)
+{
+for (int j = 0; j < 24; j = j + i)
+{
+Console.Write($"{j},");
+}
+Console.WriteLine(24);
+}
+}
+
